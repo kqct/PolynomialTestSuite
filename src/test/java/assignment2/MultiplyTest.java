@@ -62,6 +62,33 @@ class MultiplyTest {
 
     @Test
     @Tag("Original")
+    @DisplayName("multiplying two polynomials of different sizes")
+    void differentSizes() {
+        p1.addTermLast(new Term(3, new BigInteger("1")));
+        p1.addTermLast(new Term(2, new BigInteger("-1")));
+        p1.addTermLast(new Term(1, new BigInteger("1")));
+        p1.addTermLast(new Term(0, new BigInteger("1")));
+
+        p2.addTermLast(new Term(1, new BigInteger("3")));
+        p2.addTermLast(new Term(0, new BigInteger("1")));
+
+        expected.addTermLast(new Term(4, new BigInteger("3")));
+        expected.addTermLast(new Term(3, new BigInteger("-2")));
+        expected.addTermLast(new Term(2, new BigInteger("2")));
+        expected.addTermLast(new Term(1, new BigInteger("4")));
+        expected.addTermLast(new Term(0, new BigInteger("1")));
+
+        actual = Polynomial.multiply(p1, p2);
+
+        assertAll(
+                () -> assertEquals(5, expected.size()),
+                () -> assertEquals(5, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Original")
     @DisplayName("multiplying two polynomials with multiple terms each and same exponents")
     void multiTermSameExponents() {
         p1.addTermLast(new Term(12, new BigInteger("12")));
