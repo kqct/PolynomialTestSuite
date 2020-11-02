@@ -13,62 +13,70 @@ class MultiplyTest {
     Polynomial expected;
     Polynomial actual;
 
-    Polynomial term1;
-    Polynomial term2;
+    Polynomial p1;
+    Polynomial p2;
 
     @BeforeEach
     void createNewPolynomials() {
         expected = new Polynomial();
         actual = new Polynomial();
 
-        term1 = new Polynomial();
-        term2 = new Polynomial();
+        p1 = new Polynomial();
+        p2 = new Polynomial();
     }
 
     @Test
     @Tag("Original")
     @DisplayName("multiplying two polynomials with one term each and same exponents")
     void singleTermSameExponent() {
-        term1.addTermLast(new Term(1, new BigInteger("1")));
-        term2.addTermLast(new Term(1, new BigInteger("3")));
+        p1.addTermLast(new Term(1, new BigInteger("1")));
+        p2.addTermLast(new Term(1, new BigInteger("3")));
 
         expected.addTermLast(new Term(2, new BigInteger("3")));
-        actual = Polynomial.multiply(term1, term2);
+        actual = Polynomial.multiply(p1, p2);
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(1, expected.size()),
+                () -> assertEquals(1, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
     @Tag("Original")
     @DisplayName("multiplying two polynomials with one term each and different exponents")
     void singleTermDifferentExponent() {
-        term1.addTermLast(new Term(2, new BigInteger("1")));
-        term2.addTermLast(new Term(1, new BigInteger("3")));
+        p1.addTermLast(new Term(2, new BigInteger("1")));
+        p2.addTermLast(new Term(1, new BigInteger("3")));
 
         expected.addTermLast(new Term(3, new BigInteger("3")));
 
-        actual = Polynomial.multiply(term1, term2);
+        actual = Polynomial.multiply(p1, p2);
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(1, expected.size()),
+                () -> assertEquals(1, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
     @Tag("Original")
     @DisplayName("multiplying two polynomials with multiple terms each and same exponents")
     void multiTermSameExponents() {
-        term1.addTermLast(new Term(12, new BigInteger("12")));
-        term1.addTermLast(new Term(9, new BigInteger("5425")));
-        term1.addTermLast(new Term(5, new BigInteger("4")));
-        term1.addTermLast(new Term(4, new BigInteger("412")));
-        term1.addTermLast(new Term(2, new BigInteger("124")));
-        term1.addTermLast(new Term(0, new BigInteger("53")));
+        p1.addTermLast(new Term(12, new BigInteger("12")));
+        p1.addTermLast(new Term(9, new BigInteger("5425")));
+        p1.addTermLast(new Term(5, new BigInteger("4")));
+        p1.addTermLast(new Term(4, new BigInteger("412")));
+        p1.addTermLast(new Term(2, new BigInteger("124")));
+        p1.addTermLast(new Term(0, new BigInteger("53")));
 
-        term2.addTermLast(new Term(12, new BigInteger("325")));
-        term2.addTermLast(new Term(9, new BigInteger("23")));
-        term2.addTermLast(new Term(5, new BigInteger("1245")));
-        term2.addTermLast(new Term(4, new BigInteger("3512")));
-        term2.addTermLast(new Term(2, new BigInteger("4")));
-        term2.addTermLast(new Term(0, new BigInteger("2")));
+        p2.addTermLast(new Term(12, new BigInteger("325")));
+        p2.addTermLast(new Term(9, new BigInteger("23")));
+        p2.addTermLast(new Term(5, new BigInteger("1245")));
+        p2.addTermLast(new Term(4, new BigInteger("3512")));
+        p2.addTermLast(new Term(2, new BigInteger("4")));
+        p2.addTermLast(new Term(0, new BigInteger("2")));
 
         expected.addTermLast(new Term(24, new BigInteger("3900")));
         expected.addTermLast(new Term(21, new BigInteger("1763401")));
@@ -89,28 +97,32 @@ class MultiplyTest {
         expected.addTermLast(new Term(2, new BigInteger("460")));
         expected.addTermLast(new Term(0, new BigInteger("106")));
 
-        actual = Polynomial.multiply(term1, term2);
+        actual = Polynomial.multiply(p1, p2);
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(18, expected.size()),
+                () -> assertEquals(18, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
     @Tag("Original")
     @DisplayName("multiplying two polynomials with multiple terms each and overlapping exponents")
     void multiTermOverlappingExponents() {
-        term1.addTermLast(new Term(44, new BigInteger("25")));
-        term1.addTermLast(new Term(35, new BigInteger("214")));
-        term1.addTermLast(new Term(20, new BigInteger("53")));
-        term1.addTermLast(new Term(8, new BigInteger("6423")));
-        term1.addTermLast(new Term(2, new BigInteger("35")));
-        term1.addTermLast(new Term(1, new BigInteger("5")));
+        p1.addTermLast(new Term(44, new BigInteger("25")));
+        p1.addTermLast(new Term(35, new BigInteger("214")));
+        p1.addTermLast(new Term(20, new BigInteger("53")));
+        p1.addTermLast(new Term(8, new BigInteger("6423")));
+        p1.addTermLast(new Term(2, new BigInteger("35")));
+        p1.addTermLast(new Term(1, new BigInteger("5")));
 
-        term2.addTermLast(new Term(51, new BigInteger("3125")));
-        term2.addTermLast(new Term(44, new BigInteger("4")));
-        term2.addTermLast(new Term(39, new BigInteger("243")));
-        term2.addTermLast(new Term(4, new BigInteger("235")));
-        term2.addTermLast(new Term(2, new BigInteger("33")));
-        term2.addTermLast(new Term(0, new BigInteger("2")));
+        p2.addTermLast(new Term(51, new BigInteger("3125")));
+        p2.addTermLast(new Term(44, new BigInteger("4")));
+        p2.addTermLast(new Term(39, new BigInteger("243")));
+        p2.addTermLast(new Term(4, new BigInteger("235")));
+        p2.addTermLast(new Term(2, new BigInteger("33")));
+        p2.addTermLast(new Term(0, new BigInteger("2")));
 
         expected.addTermLast(new Term(95, new BigInteger("78125")));
         expected.addTermLast(new Term(88, new BigInteger("100")));
@@ -146,28 +158,32 @@ class MultiplyTest {
         expected.addTermLast(new Term(2, new BigInteger("70")));
         expected.addTermLast(new Term(1, new BigInteger("10")));
 
-        actual = Polynomial.multiply(term1, term2);
+        actual = Polynomial.multiply(p1, p2);
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(33, expected.size()),
+                () -> assertEquals(33, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
     @Tag("Original")
     @DisplayName("multiplying two polynomials with multiple terms each and completely different exponents")
     void multiTermDifferentExponents() {
-        term1.addTermLast(new Term(142, new BigInteger("1")));
-        term1.addTermLast(new Term(56, new BigInteger("4")));
-        term1.addTermLast(new Term(43, new BigInteger("-1")));
-        term1.addTermLast(new Term(25, new BigInteger("4")));
-        term1.addTermLast(new Term(9, new BigInteger("1")));
-        term1.addTermLast(new Term(1, new BigInteger("4")));
+        p1.addTermLast(new Term(142, new BigInteger("1")));
+        p1.addTermLast(new Term(56, new BigInteger("4")));
+        p1.addTermLast(new Term(43, new BigInteger("-1")));
+        p1.addTermLast(new Term(25, new BigInteger("4")));
+        p1.addTermLast(new Term(9, new BigInteger("1")));
+        p1.addTermLast(new Term(1, new BigInteger("4")));
 
-        term2.addTermLast(new Term(89, new BigInteger("3")));
-        term2.addTermLast(new Term(86, new BigInteger("2")));
-        term2.addTermLast(new Term(64, new BigInteger("3")));
-        term2.addTermLast(new Term(34, new BigInteger("2")));
-        term2.addTermLast(new Term(2, new BigInteger("3")));
-        term2.addTermLast(new Term(0, new BigInteger("-2")));
+        p2.addTermLast(new Term(89, new BigInteger("3")));
+        p2.addTermLast(new Term(86, new BigInteger("2")));
+        p2.addTermLast(new Term(64, new BigInteger("3")));
+        p2.addTermLast(new Term(34, new BigInteger("2")));
+        p2.addTermLast(new Term(2, new BigInteger("3")));
+        p2.addTermLast(new Term(0, new BigInteger("-2")));
 
         expected.addTermLast(new Term(231, new BigInteger("3")));
         expected.addTermLast(new Term(228, new BigInteger("2")));
@@ -203,41 +219,194 @@ class MultiplyTest {
         expected.addTermLast(new Term(3, new BigInteger("12")));
         expected.addTermLast(new Term(1, new BigInteger("-8")));
 
-        actual = Polynomial.multiply(term1, term2);
+        actual = Polynomial.multiply(p1, p2);
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(33, expected.size()),
+                () -> assertEquals(33, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
     @Tag("Original")
     @DisplayName("multiplying two polynomials where the first polynomial is zero")
     void firstPolyZero() {
-        term2.addTermLast(new Term(2, new BigInteger("3")));
-        term2.addTermLast(new Term(0, new BigInteger("2")));
+        p2.addTermLast(new Term(2, new BigInteger("3")));
+        p2.addTermLast(new Term(0, new BigInteger("2")));
 
-        actual = Polynomial.multiply(term1, term2);
+        actual = Polynomial.multiply(p1, p2);
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(0, expected.size()),
+                () -> assertEquals(0, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
     @Tag("Original")
     @DisplayName("multiplying two polynomials where the second polynomial is zero")
     void secondPolyZero() {
-        term1.addTermLast(new Term(2, new BigInteger("3")));
-        term1.addTermLast(new Term(0, new BigInteger("2")));
+        p1.addTermLast(new Term(2, new BigInteger("3")));
+        p1.addTermLast(new Term(0, new BigInteger("2")));
 
-        actual = Polynomial.multiply(term1, term2);
+        actual = Polynomial.multiply(p1, p2);
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(0, expected.size()),
+                () -> assertEquals(0, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
     @Tag("Original")
     @DisplayName("multiplying two polynomials where both polynomials are zero")
     void bothPolyZero() {
-        actual = Polynomial.multiply(term1, term2);
+        actual = Polynomial.multiply(p1, p2);
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(0, expected.size()),
+                () -> assertEquals(0, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("tests basic functioning of multiply()")
+    void generalMultiply() {
+        p1.addTerm(new Term(1, new BigInteger("1")));
+        p1.addTerm(new Term(0, new BigInteger("1")));
+
+        p2.addTerm(new Term(1, new BigInteger("1")));
+        p2.addTerm(new Term(0, new BigInteger("-1")));
+
+        expected.addTermLast(new Term(2, new BigInteger("1")));
+        expected.addTermLast(new Term(0, new BigInteger("-1")));
+
+        actual = Polynomial.multiply(p1, p2);
+
+        assertAll(
+                () -> assertEquals(2, p1.size()),
+                () -> assertEquals(2, p2.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies a polynomial by an empty polynomial")
+    void multiplyByEmpty1() {
+        p1.addTerm(new Term(1, new BigInteger("1")));
+        p1.addTerm(new Term(0, new BigInteger("1")));
+
+        actual = Polynomial.multiply(p1, p2);
+
+        assertAll(
+                () -> assertEquals(2, p1.size()),
+                () -> assertEquals(0, p2.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies an empty polynomial by a polynomial")
+    void multiplyByEmpty2() {
+        p2.addTerm(new Term(1, new BigInteger("1")));
+        p2.addTerm(new Term(0, new BigInteger("1")));
+
+        actual = Polynomial.multiply(p1, p2);
+
+        assertAll(
+                () -> assertEquals(0, p1.size()),
+                () -> assertEquals(2, p2.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies three polynomials together, where some terms disappear")
+    void multiplyThreePolynomials() {
+        Polynomial p3 = new Polynomial();
+
+        p1.addTerm(new Term(1, new BigInteger("1")));
+        p1.addTerm(new Term(0, new BigInteger("1")));
+        p2.addTerm(new Term(1, new BigInteger("1")));
+        p2.addTerm(new Term(0, new BigInteger("-1")));
+        p3.addTerm(new Term(2, new BigInteger("1")));
+        p3.addTerm(new Term(0, new BigInteger("1")));
+
+        expected.addTermLast(new Term(4, new BigInteger("1")));
+        expected.addTermLast(new Term(0, new BigInteger("-1")));
+
+        Polynomial pTemp = Polynomial.multiply(p1, p2);
+
+        actual = Polynomial.multiply(pTemp, p3);
+
+        assertAll(
+                () -> assertEquals(2, p1.size()),
+                () -> assertEquals(2, p2.size()),
+                () -> assertEquals(2, p3.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies two polynomials with a single term")
+    void multiplyTwoSingleTerms() {
+        p1.addTerm(new Term(54, new BigInteger("13")));
+        p2.addTerm(new Term(13, new BigInteger("54")));
+
+        expected.addTermLast(new Term(67, new BigInteger("702")));
+
+        actual = Polynomial.multiply(p1, p2);
+
+        assertAll(
+                () -> assertEquals(1, p1.size()),
+                () -> assertEquals(1, p2.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies polynomials with terms that add up to equivalent values")
+    void multiplyPolynomialsEquivalentValues() {
+        p1.addTerm(new Term(50, new BigInteger("1")));
+        p1.addTerm(new Term(30, new BigInteger("1")));
+
+        p2.addTerm(new Term(3, new BigInteger("1")));
+        p2.addTerm(new Term(2, new BigInteger("1")));
+
+        expected.addTermLast(new Term(53, new BigInteger("1")));
+        expected.addTermLast(new Term(52, new BigInteger("1")));
+        expected.addTermLast(new Term(33, new BigInteger("1")));
+        expected.addTermLast(new Term(32, new BigInteger("1")));
+
+        actual = Polynomial.multiply(p1, p2);
+
+        assertAll(
+                () -> assertEquals(2, p1.size()),
+                () -> assertEquals(2, p2.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies two empty polynomials")
+    void multiplyTwoEmpty() {
+        actual = Polynomial.multiply(p1, p2);
+
+        assertAll(
+                () -> assertEquals(0, p1.size()),
+                () -> assertEquals(0, p2.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 }

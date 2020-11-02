@@ -100,4 +100,46 @@ class AddTermTest {
                 () -> assertTrue(actual.isDeepClone(expected))
         );
     }
+    
+    @Test
+    @Tag("Megatester")
+    @DisplayName("adds a term which should be inserted in the middle of a polynomial")
+    void insertTermInMiddle() {
+        expected.addTermLast(new Term(9, new BigInteger("3")));
+        expected.addTermLast(new Term(4, new BigInteger("5")));
+        expected.addTermLast(new Term(3, new BigInteger("4")));
+        
+        actual.addTerm(new Term(9, new BigInteger("3")));
+        actual.addTerm(new Term(3, new BigInteger("4")));
+        actual.addTerm(new Term(4, new BigInteger("5")));
+
+        assertAll(
+                () -> assertEquals(3, expected.size()),
+                () -> assertEquals(3, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+    
+    @Test
+    @Tag("Megatester")
+    @DisplayName("adds an empty term")
+    void addEmptyTerm() {
+        expected.addTermLast(new Term(9, new BigInteger("3")));
+        expected.addTermLast(new Term(4, new BigInteger("5")));
+        expected.addTermLast(new Term(3, new BigInteger("4")));
+
+        actual.addTerm(new Term(9, new BigInteger("3")));
+        actual.addTerm(new Term(4, new BigInteger("5")));
+        actual.addTerm(new Term(3, new BigInteger("4")));
+
+        Term t = new Term(1, new BigInteger("120"));
+        t.setCoefficient(BigInteger.ZERO);
+        actual.addTerm(t);
+
+        assertAll(
+                () -> assertEquals(3, expected.size()),
+                () -> assertEquals(3, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
 }

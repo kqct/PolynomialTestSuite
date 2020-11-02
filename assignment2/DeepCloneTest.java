@@ -24,7 +24,10 @@ class DeepCloneTest {
     void noTerms() {
         actual = expected.deepClone();
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(expected.size(), actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
@@ -35,7 +38,10 @@ class DeepCloneTest {
 
         actual = expected.deepClone();
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(expected.size(), actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
     }
 
     @Test
@@ -48,6 +54,83 @@ class DeepCloneTest {
 
         actual = expected.deepClone();
 
-        assertTrue(actual.isDeepClone(expected));
+        assertAll(
+                () -> assertEquals(expected.size(), actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("tests basic functioning of deepClone()")
+    void generalDeepClone() {
+        expected.addTerm(new Term(9, new BigInteger("3")));
+        expected.addTerm(new Term(4, new BigInteger("5")));
+        expected.addTerm(new Term(3, new BigInteger("4")));
+        expected.addTerm(new Term(2, new BigInteger("3")));
+        expected.addTerm(new Term(1, new BigInteger("2")));
+        expected.addTerm(new Term(0, new BigInteger("1")));
+
+        actual = expected.deepClone();
+
+        assertAll(
+                () -> assertNotEquals(expected, actual),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("compares a deep clone to an identical polynomial")
+    void compareToIdentical() {
+        Polynomial pNotCopy = new Polynomial();
+
+        expected.addTerm(new Term(9, new BigInteger("3")));
+        expected.addTerm(new Term(4, new BigInteger("5")));
+        expected.addTerm(new Term(3, new BigInteger("4")));
+
+        pNotCopy.addTermLast(new Term(9, new BigInteger("3")));
+        pNotCopy.addTermLast(new Term(4, new BigInteger("5")));
+        pNotCopy.addTermLast(new Term(3, new BigInteger("4")));
+
+        actual = expected.deepClone();
+
+        assertAll(
+                () -> assertNotEquals(expected, actual),
+                () -> assertNotEquals(expected, pNotCopy),
+                () -> assertEquals(3, expected.size()),
+                () -> assertTrue(actual.isDeepClone(pNotCopy)),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("tests deepClone() on an empty polynomial")
+    void compareToEmpty() {
+        actual = expected.deepClone();
+
+        assertAll(
+                () -> assertEquals(0, expected.size()),
+                () -> assertEquals(0, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("changes term in copy, to see if terms are indeed deepclones")
+    void changeTerms() {
+        expected.addTerm(new Term(9, new BigInteger("3")));
+        expected.addTerm(new Term(4, new BigInteger("5")));
+        expected.addTerm(new Term(3, new BigInteger("4")));
+        expected.addTerm(new Term(2, new BigInteger("3")));
+        expected.addTerm(new Term(1, new BigInteger("2")));
+        expected.addTerm(new Term(0, new BigInteger("1")));
+
+        actual = expected.deepClone();
+        actual.getTerm(0).setExponent(10);
+
+        assertFalse(actual.isDeepClone(expected));
     }
 }

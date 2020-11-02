@@ -14,7 +14,7 @@ class MultiplyTermTest {
 
     @BeforeAll
     static void createZeroTerm() {
-        zero = new Term(0, BigInteger.ONE);
+        zero = new Term(1, BigInteger.ONE);
         zero.setCoefficient(BigInteger.ZERO);
     }
 
@@ -156,6 +156,50 @@ class MultiplyTermTest {
         assertAll(
                 () -> assertEquals(6, expected.size()),
                 () -> assertEquals(6, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies a polynomial by a term with coefficient 0")
+    void multiplyPolynomialByZero() {
+        actual.addTerm(new Term(1, new BigInteger("1")));
+        actual.addTerm(new Term(0, new BigInteger("1")));
+
+        actual.multiplyTerm(zero);
+
+        assertAll(
+                () -> assertEquals(0, expected.size()),
+                () -> assertEquals(0, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies an empty polynomial by a term with coefficient 0")
+    void multiplyEmptyPolynomialByZero() {
+        actual.multiplyTerm(zero);
+
+        assertAll(
+                () -> assertEquals(0, expected.size()),
+                () -> assertEquals(0, actual.size()),
+                () -> assertTrue(actual.isDeepClone(expected))
+        );
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("multiplies an empty polynomial by a term")
+    void multiplyEmptyPolynomialByTerm() {
+        Term t = new Term(1, new BigInteger("1"));
+
+        actual.multiplyTerm(t);
+
+        assertAll(
+                () -> assertEquals(0, expected.size()),
+                () -> assertEquals(0, actual.size()),
                 () -> assertTrue(actual.isDeepClone(expected))
         );
     }

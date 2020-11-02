@@ -10,23 +10,23 @@ import java.math.BigInteger;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EvalTest {
-    Polynomial term;
+    Polynomial actual;
     BigInteger expected;
 
     @BeforeEach
     void createNewPolynomial() {
-        term = new Polynomial();
+        actual = new Polynomial();
     }
 
     @Test
     @Tag("Minitester")
     @DisplayName("polynomial of stricly zero-value exponent")
     void constantTerm() {
-        term.addTermLast(new Term(0, new BigInteger("465")));
+        actual.addTermLast(new Term(0, new BigInteger("465")));
         expected = new BigInteger("465");
 
-        BigInteger result1 = term.eval(BigInteger.ONE);
-        BigInteger result2 = term.eval(BigInteger.ZERO);
+        BigInteger result1 = actual.eval(BigInteger.ONE);
+        BigInteger result2 = actual.eval(BigInteger.ZERO);
 
         assertAll(
                 () -> assertEquals(expected, result1),
@@ -41,11 +41,11 @@ class EvalTest {
     void descendingTerms() {
         int nTerms = 10;
         for (int i = nTerms - 1; i >= 0; i--)
-            term.addTermLast(new Term(i, new BigInteger(Integer.toString(i + 1))));
+            actual.addTermLast(new Term(i, new BigInteger(Integer.toString(i + 1))));
 
         expected = new BigInteger("9217");
 
-        BigInteger result = term.eval(BigInteger.TWO);
+        BigInteger result = actual.eval(BigInteger.TWO);
 
         assertEquals(expected, result);
     }
@@ -54,14 +54,14 @@ class EvalTest {
     @Tag("Minitester")
     @DisplayName("random non-iterative coefficients and exponents")
     void randomTerms() {
-        term.addTermLast(new Term(12, new BigInteger(Integer.toString(1))));
-        term.addTermLast(new Term(3, new BigInteger(Integer.toString(-4))));
-        term.addTermLast(new Term(2, new BigInteger(Integer.toString(2))));
-        term.addTermLast(new Term(1, new BigInteger(Integer.toString(-1))));
+        actual.addTermLast(new Term(12, new BigInteger(Integer.toString(1))));
+        actual.addTermLast(new Term(3, new BigInteger(Integer.toString(-4))));
+        actual.addTermLast(new Term(2, new BigInteger(Integer.toString(2))));
+        actual.addTermLast(new Term(1, new BigInteger(Integer.toString(-1))));
 
         expected = new BigInteger("531348");
 
-        BigInteger result = term.eval(new BigInteger("3"));
+        BigInteger result = actual.eval(new BigInteger("3"));
 
         assertEquals(expected, result);
     }
@@ -70,14 +70,66 @@ class EvalTest {
     @Tag("Minitester")
     @DisplayName("evaluate on negative number")
     void evalNegative() {
-        term.addTermLast(new Term(11, new BigInteger(Integer.toString(1))));
-        term.addTermLast(new Term(3, new BigInteger(Integer.toString(-4))));
-        term.addTermLast(new Term(2, new BigInteger(Integer.toString(2))));
-        term.addTermLast(new Term(1, new BigInteger(Integer.toString(-1))));
+        actual.addTermLast(new Term(11, new BigInteger(Integer.toString(1))));
+        actual.addTermLast(new Term(3, new BigInteger(Integer.toString(-4))));
+        actual.addTermLast(new Term(2, new BigInteger(Integer.toString(2))));
+        actual.addTermLast(new Term(1, new BigInteger(Integer.toString(-1))));
 
         expected = new BigInteger("-2006");
 
-        BigInteger result = term.eval(new BigInteger("-2"));
+        BigInteger result = actual.eval(new BigInteger("-2"));
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("tests basic functioning of eval on a polynomial where not every exponent is present")
+    void basicEval() {
+        actual.addTerm(new Term(3, new BigInteger("2")));
+        actual.addTerm(new Term(1, new BigInteger("5")));
+        actual.addTerm(new Term(0, new BigInteger("2")));
+
+        expected = new BigInteger("277");
+
+        BigInteger result = actual.eval(new BigInteger("5"));
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("tests eval by evaluating it with x = 0")
+    void evalAtZero() {
+        actual.addTerm(new Term(3, new BigInteger("2")));
+        actual.addTerm(new Term(1, new BigInteger("5")));
+        actual.addTerm(new Term(0, new BigInteger("2")));
+
+        expected = new BigInteger("2");
+
+        BigInteger result = actual.eval(new BigInteger("0"));
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("tests evaluating an empty polynomial")
+    void evaluateEmpty() {
+        expected = new BigInteger("0");
+
+        BigInteger result = actual.eval(new BigInteger("129"));
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    @Tag("Megatester")
+    @DisplayName("tests evaluating an empty polynomial with x = 0")
+    void evaluateEmptyAtEmpty() {
+        expected = new BigInteger("0");
+
+        BigInteger result = actual.eval(new BigInteger("0"));
 
         assertEquals(expected, result);
     }
