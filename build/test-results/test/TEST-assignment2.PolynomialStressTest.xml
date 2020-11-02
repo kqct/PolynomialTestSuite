@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment2.PolynomialStressTest" tests="6" skipped="2" failures="0" errors="0" timestamp="2020-11-02T19:30:06" hostname="Joshs-MacBook-Pro.local" time="0.209">
+  <properties/>
+  <testcase name="evalManyTerms()" classname="assignment2.PolynomialStressTest" time="0.057"/>
+  <testcase name="addTerm()" classname="assignment2.PolynomialStressTest" time="0.005"/>
+  <testcase name="add()" classname="assignment2.PolynomialStressTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="multiplyTerm()" classname="assignment2.PolynomialStressTest" time="0.008"/>
+  <testcase name="evalLargeAnswer()" classname="assignment2.PolynomialStressTest" time="0.134"/>
+  <testcase name="multiply()" classname="assignment2.PolynomialStressTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

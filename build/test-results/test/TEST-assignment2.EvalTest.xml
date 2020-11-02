@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment2.EvalTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-11-02T19:30:07" hostname="Joshs-MacBook-Pro.local" time="0.01">
+  <properties/>
+  <testcase name="basicEval()" classname="assignment2.EvalTest" time="0.0"/>
+  <testcase name="randomTerms()" classname="assignment2.EvalTest" time="0.0"/>
+  <testcase name="evalAtZero()" classname="assignment2.EvalTest" time="0.0"/>
+  <testcase name="evaluateEmpty()" classname="assignment2.EvalTest" time="0.0"/>
+  <testcase name="constantTerm()" classname="assignment2.EvalTest" time="0.001"/>
+  <testcase name="descendingTerms()" classname="assignment2.EvalTest" time="0.001"/>
+  <testcase name="evalNegative()" classname="assignment2.EvalTest" time="0.0"/>
+  <testcase name="evaluateEmptyAtEmpty()" classname="assignment2.EvalTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

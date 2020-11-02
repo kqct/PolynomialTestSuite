@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment2.AddTermTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-11-02T19:30:07" hostname="Joshs-MacBook-Pro.local" time="0.01">
+  <properties/>
+  <testcase name="addEmptyTerm()" classname="assignment2.AddTermTest" time="0.001"/>
+  <testcase name="multipleTermsAscendingOrder()" classname="assignment2.AddTermTest" time="0.001"/>
+  <testcase name="singleTermAdded()" classname="assignment2.AddTermTest" time="0.001"/>
+  <testcase name="insertTermInMiddle()" classname="assignment2.AddTermTest" time="0.001"/>
+  <testcase name="combiningTerms()" classname="assignment2.AddTermTest" time="0.003"/>
+  <testcase name="multipleTermsDescendingOrder()" classname="assignment2.AddTermTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,10 @@
+assignment2/Term.java
+ assignment2.Term
+assignment2/SLinkedList.java
+ assignment2.SLinkedList
+ assignment2.SLinkedList$SLLIterator
+ assignment2.SLinkedList$SNode
+assignment2/Polynomial.java
+ assignment2.Polynomial
+assignment2/DeepClone.java
+ assignment2.DeepClone

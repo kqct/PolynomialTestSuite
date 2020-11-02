@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment2.DeepCloneTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-11-02T19:30:07" hostname="Joshs-MacBook-Pro.local" time="0.01">
+  <properties/>
+  <testcase name="changeTerms()" classname="assignment2.DeepCloneTest" time="0.001"/>
+  <testcase name="oneTerm()" classname="assignment2.DeepCloneTest" time="0.001"/>
+  <testcase name="compareToEmpty()" classname="assignment2.DeepCloneTest" time="0.001"/>
+  <testcase name="generalDeepClone()" classname="assignment2.DeepCloneTest" time="0.002"/>
+  <testcase name="multiTerms()" classname="assignment2.DeepCloneTest" time="0.001"/>
+  <testcase name="compareToIdentical()" classname="assignment2.DeepCloneTest" time="0.002"/>
+  <testcase name="noTerms()" classname="assignment2.DeepCloneTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,14 @@
+assignment2/AddTermTest.java
+ assignment2.AddTermTest
+assignment2/MultiplyTest.java
+ assignment2.MultiplyTest
+assignment2/MultiplyTermTest.java
+ assignment2.MultiplyTermTest
+assignment2/AddTest.java
+ assignment2.AddTest
+assignment2/EvalTest.java
+ assignment2.EvalTest
+assignment2/PolynomialStressTest.java
+ assignment2.PolynomialStressTest
+assignment2/DeepCloneTest.java
+ assignment2.DeepCloneTest

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="assignment2.MultiplyTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2020-11-02T19:30:07" hostname="Joshs-MacBook-Pro.local" time="0.032">
+  <properties/>
+  <testcase name="multiplyThreePolynomials()" classname="assignment2.MultiplyTest" time="0.004"/>
+  <testcase name="firstPolyZero()" classname="assignment2.MultiplyTest" time="0.001"/>
+  <testcase name="bothPolyZero()" classname="assignment2.MultiplyTest" time="0.001"/>
+  <testcase name="singleTermDifferentExponent()" classname="assignment2.MultiplyTest" time="0.001"/>
+  <testcase name="multiplyTwoSingleTerms()" classname="assignment2.MultiplyTest" time="0.002"/>
+  <testcase name="multiTermSameExponents()" classname="assignment2.MultiplyTest" time="0.002"/>
+  <testcase name="multiTermDifferentExponents()" classname="assignment2.MultiplyTest" time="0.002"/>
+  <testcase name="secondPolyZero()" classname="assignment2.MultiplyTest" time="0.002"/>
+  <testcase name="multiplyPolynomialsEquivalentValues()" classname="assignment2.MultiplyTest" time="0.001"/>
+  <testcase name="multiplyByEmpty1()" classname="assignment2.MultiplyTest" time="0.001"/>
+  <testcase name="multiplyByEmpty2()" classname="assignment2.MultiplyTest" time="0.002"/>
+  <testcase name="singleTermSameExponent()" classname="assignment2.MultiplyTest" time="0.001"/>
+  <testcase name="multiTermOverlappingExponents()" classname="assignment2.MultiplyTest" time="0.002"/>
+  <testcase name="multiplyTwoEmpty()" classname="assignment2.MultiplyTest" time="0.001"/>
+  <testcase name="generalMultiply()" classname="assignment2.MultiplyTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
