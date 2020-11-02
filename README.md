@@ -8,12 +8,19 @@ Please change the relevant line in `build.gradle` to the location and name of th
 
 ## Installation
 ### IntelliJ
-1. Get the project from version control (Click "Get from version control..." and paste the URL of this project)
-2. You're done!
+To import the project from version control:
+1. Click "Get from version control..."
+2. Select "GitHub"
+3. Select a local directory and paste the URL of this project
+4. You're done!
+
 ### Eclipse
-1. Install IntelliJ
-2. Follow steps above
-(a joke! I will write Eclipse install/use later)
+1. Select "Git -> Projects from Git (with smart import)"
+2. Select "Clone URI"
+3. Paste the URL of this project into "URI"
+4. Select the "master" branch
+
+This still doesn't work. If anyone knows how importing Gradle projects into Eclipse works please feel free to open an issue/pull request to tell me.
 
 ## Usage
 ### IntelliJ
