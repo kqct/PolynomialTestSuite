@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="RuntimeTester-MacOS">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/libs/RuntimeTester-MacOS.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
