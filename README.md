@@ -19,7 +19,7 @@ To import the project from version control:
 2. Select "Clone URI"
 3. Paste the URL of this project into "URI"
 4. Select the "master" branch
-5. Once the project is imported, click the "Gradle Tasks" tab and import the Gradle project. The root directory will be wherever you cloned the project to.
+5. Once the project is imported, click the "Gradle Tasks" tab (you can find it in Window -> Show View -> Other -> Gradle -> Gradle Tasks) and import the Gradle project. The root directory will be wherever you cloned the project to.
 
 ## Usage
 ### To run all tests:
