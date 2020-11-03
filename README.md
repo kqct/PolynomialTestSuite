@@ -19,15 +19,15 @@ To import the project from version control:
 2. Select "Clone URI"
 3. Paste the URL of this project into "URI"
 4. Select the "master" branch
-
-This still doesn't work. If anyone knows how importing Gradle projects into Eclipse works please feel free to open an issue/pull request to tell me.
+5. Once the project is imported, click the "Gradle Tasks" tab and import the Gradle project. The root directory will be wherever you cloned the project to.
 
 ## Usage
 ### IntelliJ
-To run all tests:
-
+#### To run all tests:
 Right-click on the package "src/test/java/assignment2" and click "Run 'Tests in 'assignment2''"
 
-To run a smaller selection of tests:
-
+#### To run a smaller selection of tests:
 Either right-click the files or go in to the files and run whatever methods you want
+
+### Eclipse
+Run the build task in Gradle Tasks -> build -> build. This will run all the tests and show failed tests with an x, skipped tests with an arrow, and passed tests with a check mark. I haven't yet figured out how to run individual tests...
