@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Gradle: org.apiguardian:apiguardian-api:1.0.0">
+    <archive path="/Users/josh/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.0.0/3ef5276905e36f4d8055fe3cb0bdcc7503ffc85d/apiguardian-api-1.0.0.jar" />
+  </library>
+  <library name="Gradle: org.junit.jupiter:junit-jupiter-api:5.4.2">
+    <archive path="/Users/josh/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.4.2/665d1c0daecb26c6210c872768000b417e7e52b6/junit-jupiter-api-5.4.2.jar" />
+  </library>
+  <library name="Gradle: org.junit.jupiter:junit-jupiter-engine:5.4.2">
+    <archive path="/Users/josh/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.4.2/4d10922ce4d9c4e22cef8ff5386cb273b9f12281/junit-jupiter-engine-5.4.2.jar" />
+  </library>
+  <library name="Gradle: org.junit.jupiter:junit-jupiter-params:5.4.2">
+    <archive path="/Users/josh/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/5.4.2/90869581419d4125a30d7b80800c1c86a48d18ad/junit-jupiter-params-5.4.2.jar" />
+  </library>
+  <library name="Gradle: org.junit.jupiter:junit-jupiter:5.4.2">
+    <archive path="/Users/josh/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter/5.4.2/3d53c16407bcc8f32b3569e10f9c4c3ec1792dc6/junit-jupiter-5.4.2.jar" />
+  </library>
+  <library name="Gradle: org.junit.platform:junit-platform-commons:1.4.2">
+    <archive path="/Users/josh/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.4.2/37993dc807ca253aa347be8968a0ae7b70642dbc/junit-platform-commons-1.4.2.jar" />
+  </library>
+  <library name="Gradle: org.junit.platform:junit-platform-engine:1.4.2">
+    <archive path="/Users/josh/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.4.2/52b70561f65bb397b054876f2d8c6f30b06c3581/junit-platform-engine-1.4.2.jar" />
+  </library>
+  <library name="Gradle: org.opentest4j:opentest4j:1.1.1">
+    <archive path="/Users/josh/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.1.1/efd9f971e91074491ea55b19f67b13470cf4fcdd/opentest4j-1.1.1.jar" />
+  </library>
+  <library name="RuntimeTester-MacOS" />
+</eclipse-userlibraries>
+
