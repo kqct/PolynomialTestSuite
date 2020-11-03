@@ -2,16 +2,13 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
-    implementation files('libs/RuntimeTester-MacOS.jar') // Change this to the name and location of your .jar file
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.0'
+    //implementation files('libs/RuntimeTester-MacOS.jar') // Change this to the name and location of your .jar file
 }
 
 test {
